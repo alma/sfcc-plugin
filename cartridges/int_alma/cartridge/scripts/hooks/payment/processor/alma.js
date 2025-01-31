@@ -1,5 +1,3 @@
-'use strict';
-
 var Resource = require('dw/web/Resource');
 var Transaction = require('dw/system/Transaction');
 var OrderMgr = require('dw/order/OrderMgr');
@@ -77,7 +75,7 @@ function Authorize(orderNumber, paymentInstrument, paymentProcessor) {
     } catch (e) {
         error = true;
         serverErrors.push(
-            Resource.msg('error.technical', 'checkout', null)
+            Resource.msg('error.technical Error message: ' + e.toString(), 'checkout', null)
         );
     }
 

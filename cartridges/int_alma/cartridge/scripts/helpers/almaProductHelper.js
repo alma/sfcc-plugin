@@ -1,5 +1,3 @@
-'use strict';
-
 /**
  * Get product id
  * @param {Object} product product

@@ -1,5 +1,3 @@
-'use strict';
-
 /**
  * Check if we should trigger the payment for an Order that have been shipped
  * @param {dw.order.Order} order to be paid
@@ -40,7 +38,7 @@ function triggerPaymentForOrder(triggerService, order) {
     }
 
     Transaction.wrap(function () {
-        order.custom.ALMA_ResponseDetails = 'Shipping'; // eslint-disable-line no-param-reassign
+        order.custom.ALMA_ResponseDetails = 'Shipping';
         order.setPaymentStatus(Order.PAYMENT_STATUS_PAID);
     });
 }

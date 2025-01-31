@@ -1,5 +1,3 @@
-'use strict';
-
 /**
  * format address for eligibility service
  * @param  {dw.order.OrderAddress} address the customer address

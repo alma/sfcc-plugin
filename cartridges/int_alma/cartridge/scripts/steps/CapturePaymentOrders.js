@@ -1,5 +1,3 @@
-'use strict';
-
 var Order = require('dw/order/Order');
 var Status = require('dw/system/Status');
 
@@ -30,7 +28,7 @@ function makeCaptureWhileHaveAnOrder(orders, CAPTURE) {
             Logger.info(captureType.description + ' payment: order id: {0} - payment id: {1} - capture id : {2}', [order.orderNo, order.custom.almaPaymentId, capture.id]);
         } catch (e) {
             almaOrderHelper.setAlmaDeferredCaptureFields(order, CAPTURE.failed.code);
-            Logger.warn(CAPTURE.failed.description + ' payment: order id: {0}, payment id: {1}', [order.orderNo, order.custom.almaPaymentId]);
+            Logger.warn(CAPTURE.failed.description + ' payment: order id: {0}, payment id: {1}. Error message: {2}', [order.orderNo, order.custom.almaPaymentId, e.toString()]);
         }
     }
 }

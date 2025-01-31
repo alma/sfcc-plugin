@@ -1,5 +1,3 @@
-'use strict';
-
 /**
  * A forOf function to mimic for..of . :')
  * @param {array|Object} iterable any iterable item

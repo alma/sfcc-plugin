@@ -1,8 +1,6 @@
-'use strict';
-
 exports.ConfigException = class {
-  constructor(message) {
-    this.message = message;
-    this.name = 'ConfigException';
-  }
+    constructor(message) {
+        this.message = message;
+        this.name = 'ConfigException';
+    }
 };

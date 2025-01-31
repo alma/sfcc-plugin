@@ -1,5 +1,3 @@
-'use strict';
-
 /**
  * Verifies the required information for billing form is provided.
  * @param {Object} req - The request object

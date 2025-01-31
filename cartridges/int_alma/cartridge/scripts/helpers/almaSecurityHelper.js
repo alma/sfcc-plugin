@@ -1,5 +1,3 @@
-'use strict';
-
 var Mac = require('dw/crypto/Mac');
 var Encoding = require('dw/crypto/Encoding');
 

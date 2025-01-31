@@ -1,5 +1,3 @@
-'use strict';
-
 var logger = require('dw/system/Logger').getLogger('alma');
 var formatAddress = require('*/cartridge/scripts/helpers/almaAddressHelper').formatAddress;
 

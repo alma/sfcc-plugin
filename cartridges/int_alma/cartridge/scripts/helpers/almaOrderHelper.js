@@ -1,5 +1,3 @@
-'use strict';
-
 var Transaction = require('dw/system/Transaction');
 
 /**
@@ -9,7 +7,6 @@ var Transaction = require('dw/system/Transaction');
  */
 function addPidToOrder(order, pid) {
     Transaction.wrap(function () {
-        // eslint-disable-next-line no-param-reassign
         order.custom.almaPaymentId = pid;
     });
 }
@@ -21,7 +18,6 @@ function addPidToOrder(order, pid) {
  */
 function addAlmaPaymentDetails(order, payDetail) {
     Transaction.wrap(function () {
-        // eslint-disable-next-line no-param-reassign
         order.custom.ALMA_ResponseDetails = payDetail;
     });
 }
@@ -35,14 +31,12 @@ function addAlmaPaymentDetails(order, payDetail) {
 function setAlmaDeferredCaptureFields(order, deferredCaptureStatus, amount) {
     if (amount) {
         Transaction.wrap(function () {
-            // eslint-disable-next-line no-param-reassign
             order.custom.ALMA_Deferred_Capture_Status = deferredCaptureStatus;
             order.custom.ALMA_Deferred_Capture_Partial_Amount_Captured = amount;
             order.custom.ALMA_Deferred_Capture_Partial_Amount = null;
         });
     } else {
         Transaction.wrap(function () {
-            // eslint-disable-next-line no-param-reassign
             order.custom.ALMA_Deferred_Capture_Status = deferredCaptureStatus;
             order.custom.ALMA_Deferred_Capture_Partial_Amount = null;
         });

@@ -1,5 +1,3 @@
-'use strict';
-
 var server = require('server');
 var almaWidgetHelper = require('*/cartridge/scripts/helpers/almaWidgetHelper');
 

@@ -1,5 +1,3 @@
-'use strict';
-
 /**
  * @param {dw.order.Order} order order to refund
  * @param {int|null} amount amount for refund
@@ -54,11 +52,10 @@ exports.refundPaymentForOrder = function (order, amount) {
     }
 
     Transaction.wrap(function () {
-        // eslint-disable-next-line no-param-reassign
         order.custom.almaRefundedAmount += amount ? Math.round(amount) : order.getTotalGrossPrice();
-        // eslint-disable-next-line no-param-reassign
+
         order.custom.almaWantedRefundAmount = 0;
-        // eslint-disable-next-line no-param-reassign
+
         order.custom.almaRefundType = null;
     });
 };

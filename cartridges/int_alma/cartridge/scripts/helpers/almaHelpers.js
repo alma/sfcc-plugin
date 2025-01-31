@@ -1,5 +1,3 @@
-'use strict';
-
 var Site = require('dw/system/Site');
 var System = require('dw/system/System');
 var logger = require('dw/system/Logger').getLogger('alma');
@@ -50,7 +48,7 @@ function addHeaders(service) {
  */
 function getUrl(path) {
     if (typeof path === 'undefined') {
-        path = ''; // eslint-disable-line no-param-reassign
+        path = '';
     }
 
     var url = Site.getCurrent().getCustomPreferenceValue('ALMA_APIUrl') + path;

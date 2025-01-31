@@ -1,5 +1,3 @@
-'use strict';
-
 var server = require('server');
 var logger = require('dw/system/Logger').getLogger('alma');
 
@@ -122,14 +120,14 @@ server.get('PaymentSuccess', function (req, res, next) {
     var paymentHelper = require('*/cartridge/scripts/helpers/almaPaymentHelper');
     var orderHelper = require('*/cartridge/scripts/helpers/almaOrderHelper');
     var configHelper = require('*/cartridge/scripts/helpers/almaConfigHelper');
-    var paymentObj = null;
+    var paymentObj;
 
     try {
         paymentObj = buildPaymentObj(req.querystring.pid);
     } catch (e) {
         res.setStatusCode(500);
         res.render('error', {
-            message: 'Can not find any payment for this order. Your order will fail.'
+            message: 'Can not find any payment for this order. Your order will fail. Error message: ' + e.toString()
         });
         return next();
     }
@@ -168,7 +166,7 @@ server.get('PaymentSuccess', function (req, res, next) {
         buildViewParams(paymentObj, order, req.locale.id, req.currentCustomer.profile)
     );
 
-    req.session.raw.custom.orderID = req.querystring.pid; // eslint-disable-line no-param-reassign
+    req.session.raw.custom.orderID = req.querystring.pid;
 
     return next();
 });
@@ -201,7 +199,7 @@ server.get('IPN', function (req, res, next) {
     var orderHelper = require('*/cartridge/scripts/helpers/almaOrderHelper');
     var almaSecurityHelper = require('*/cartridge/scripts/helpers/almaSecurityHelper');
     var almaHelpers = require('*/cartridge/scripts/helpers/almaHelpers');
-    var paymentObj = null;
+    var paymentObj;
     var paymentId = req.querystring.pid;
     var signature = req.httpHeaders.get('X-Alma-Signature');
 
@@ -220,7 +218,7 @@ server.get('IPN', function (req, res, next) {
     } catch (e) {
         res.setStatusCode(500);
         res.render('error', {
-            message: 'Can not find any payment for this order. Your order will fail.'
+            message: 'Can not find any payment for this order. Your order will fail. Error message: ' + e.toString()
         });
         return next();
     }
@@ -319,7 +317,7 @@ server.post('CreatePaymentUrl', server.middleware.https, function (req, res, nex
     } catch (e) {
         res.setStatusCode(500);
         res.render('error', {
-            message: 'Could not create payment on Alma side'
+            message: 'Could not create payment on Alma side. Error message: ' + e.toString()
         });
     }
     return next();

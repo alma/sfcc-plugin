@@ -1,5 +1,3 @@
-'use strict';
-
 /**
  * Returns true if 'On shipment' payment is Enabled
  * @param  {number} installmentsCount number of installments
@@ -8,7 +6,7 @@
  */
 function isOnShipmentPaymentEnabled(installmentsCount, deferredDays) {
     var Site = require('dw/system/Site');
-    deferredDays = (typeof deferredDays !== 'undefined') ? deferredDays : 0; // eslint-disable-line no-param-reassign
+    deferredDays = (typeof deferredDays !== 'undefined') ? deferredDays : 0;
 
     var getAllowedPlans = require('*/cartridge/scripts/helpers/almaPlanHelper').getAllowedPlans;
     var find = require('*/cartridge/scripts/helpers/almaUtilsHelper').find;

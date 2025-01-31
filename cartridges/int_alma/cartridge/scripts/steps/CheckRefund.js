@@ -1,5 +1,3 @@
-'use strict';
-
 /**
  * Check if we should refund the payment
  * @param {dw.order.Order} order to be paid
@@ -58,14 +56,14 @@ function cancelDeferredCapturePaymentForARefund(orderItem, Logger) {
     }
 
     /* jshint loopfunc: true */
-    // eslint-disable-next-line no-loop-func
+
     Transaction.wrap(function () {
         orderItem.custom.ALMA_Deferred_Capture_Status = deferredStatus;
-        // eslint-disable-next-line no-param-reassign
+
         orderItem.custom.almaRefundedAmount = amount;
-        // eslint-disable-next-line no-param-reassign
+
         orderItem.custom.almaWantedRefundAmount = 0;
-        // eslint-disable-next-line no-param-reassign
+
         orderItem.custom.almaRefundType = null;
     });
 }

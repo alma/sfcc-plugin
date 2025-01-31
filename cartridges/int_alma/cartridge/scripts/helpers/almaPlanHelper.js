@@ -1,5 +1,3 @@
-'use strict';
-
 var Site = require('dw/system/Site');
 var logger = require('dw/system/Logger').getLogger('alma');
 var almaUtilsHelpers = require('*/cartridge/scripts/helpers/almaUtilsHelper');
@@ -23,7 +21,7 @@ function getFeePlans() {
     try {
         return JSON.parse(plansString);
     } catch (e) {
-        logger.error('Configuration Error, please run \'npm run build:sitepref\' and import site_template.zip again.');
+        logger.error('Configuration Error, please run \'npm run build:sitepref\' and import site_template.zip again. Error message: ' + e.toString());
     }
     return [];
 }

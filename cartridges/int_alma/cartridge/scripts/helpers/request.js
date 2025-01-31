@@ -1,5 +1,3 @@
-'use strict';
-
 var URLUtils = require('dw/web/URLUtils');
 var pkg = require('../../../package.json');
 

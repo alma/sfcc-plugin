@@ -1,5 +1,3 @@
-'use strict';
-
 var LocalServiceRegistry = require('dw/svc/LocalServiceRegistry');
 var almaHelpers = require('*/cartridge/scripts/helpers/almaHelpers');
 
@@ -16,7 +14,7 @@ function createPayment() {
          */
         createRequest: function (service, params) {
             service.setRequestMethod('POST');
-            service.URL = almaHelpers.getUrl('/v1/payments'); // eslint-disable-line no-param-reassign
+            service.URL = almaHelpers.getUrl('/v1/payments');
             almaHelpers.addHeaders(service);
 
             return JSON.stringify(params);
@@ -39,7 +37,7 @@ function triggerPayment() {
          */
         createRequest: function (service, params) {
             service.setRequestMethod('POST');
-            service.URL = almaHelpers.getUrl('/v1/payments/' + params.pid + '/trigger'); // eslint-disable-line no-param-reassign
+            service.URL = almaHelpers.getUrl('/v1/payments/' + params.pid + '/trigger');
             almaHelpers.addHeaders(service);
         },
         parseResponse: function (svc, client) {
@@ -60,7 +58,7 @@ function getPaymentDetails() {
          */
         createRequest: function (service, params) {
             service.setRequestMethod('GET');
-            service.URL = almaHelpers.getUrl('/v1/payments/' + params.pid); // eslint-disable-line no-param-reassign
+            service.URL = almaHelpers.getUrl('/v1/payments/' + params.pid);
             almaHelpers.addHeaders(service);
         },
         parseResponse: function (svc, client) {
@@ -82,7 +80,7 @@ function checkEligibility() {
          */
         createRequest: function (service, params) {
             service.setRequestMethod('POST');
-            service.URL = almaHelpers.getUrl('/v2/payments/eligibility'); // eslint-disable-line no-param-reassign
+            service.URL = almaHelpers.getUrl('/v2/payments/eligibility');
             almaHelpers.addHeaders(service);
 
             return JSON.stringify(params);
@@ -106,7 +104,7 @@ function refundPayment() {
          */
         createRequest: function (service, params) {
             service.setRequestMethod('POST');
-            service.URL = almaHelpers.getUrl('/v1/payments/' + params.pid + '/refunds'); // eslint-disable-line no-param-reassign
+            service.URL = almaHelpers.getUrl('/v1/payments/' + params.pid + '/refunds');
             almaHelpers.addHeaders(service);
 
             return JSON.stringify(params);
@@ -130,7 +128,7 @@ function flagAsPotentialFraud() {
          */
         createRequest: function (service, params) {
             service.setRequestMethod('POST');
-            service.URL = almaHelpers.getUrl('/v1/payments/' + params.pid + '/potential-fraud'); // eslint-disable-line no-param-reassign
+            service.URL = almaHelpers.getUrl('/v1/payments/' + params.pid + '/potential-fraud');
             almaHelpers.addHeaders(service);
 
             return JSON.stringify(params);
@@ -154,7 +152,7 @@ function setOrderMerchantReferenceAPI() {
          */
         createRequest: function (service, params) {
             service.setRequestMethod('POST');
-            service.URL = almaHelpers.getUrl('/v1/payments/' + params.pid + '/orders'); // eslint-disable-line no-param-reassign
+            service.URL = almaHelpers.getUrl('/v1/payments/' + params.pid + '/orders');
             almaHelpers.addHeaders(service);
 
             return JSON.stringify(params);
@@ -178,7 +176,7 @@ function captures() {
          */
         createRequest: function (service, params) {
             service.setRequestMethod('POST');
-            service.URL = almaHelpers.getUrl('/v1/payments/' + params.external_id + '/captures'); // eslint-disable-line no-param-reassign
+            service.URL = almaHelpers.getUrl('/v1/payments/' + params.external_id + '/captures');
             almaHelpers.addHeaders(service);
 
             return JSON.stringify(params);
@@ -202,7 +200,7 @@ function cancelAlmaPayment() {
          */
         createRequest: function (service, params) {
             service.setRequestMethod('PUT');
-            service.URL = almaHelpers.getUrl('/v1/payments/' + params.external_id + '/cancel'); // eslint-disable-line no-param-reassign
+            service.URL = almaHelpers.getUrl('/v1/payments/' + params.external_id + '/cancel');
             almaHelpers.addHeaders(service);
 
             return JSON.stringify(params);

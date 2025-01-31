@@ -1,5 +1,3 @@
-'use strict';
-
 var Resource = require('dw/web/Resource');
 var formatCurrency = require('*/cartridge/scripts/util/formatting').formatCurrency;
 var isOnShipmentPaymentEnabled = require('*/cartridge/scripts/helpers/almaOnShipmentHelper').isOnShipmentPaymentEnabled;
